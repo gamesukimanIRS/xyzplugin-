@@ -26,6 +26,7 @@ class Main extends PluginBase implements Listener{
       $x = $player->getX();
       $y = $player->getY();
       $z = $player->getZ();
+      $sender->sendMessage("あなたの座標はX=".x."、Y=".y."、Z=".z."、ワールド=".l."です。");
       
     }else{
   $sender->sendMesaage("サーバー内で実行して下さい");
