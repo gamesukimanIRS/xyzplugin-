@@ -17,6 +17,20 @@ class Main extends PluginBase implements Listener{
   }
   
   public function onCommand(){
+    
+if($player instanceof Player){
+  switch ($args[0])
+    case 'xyz':
+    $level->$player->getLevel();
+    $x->$player->getX();
+    $y->$player->getY();
+    $z->$player->getZ();
+  
+  break;
+}else{
+  $sender->sendMesaage("サーバー内で実行して下さい");
+}
+        
   
 
 ？>
