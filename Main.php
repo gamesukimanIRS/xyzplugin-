@@ -12,5 +12,7 @@ use pocketmine¥command¥CommandSender;
 
 class Main extends PluginBase implements Listener{
   
+    public function onEnable(){
+      $this->getlogger()->info("xyzpluginを読み込みました");
 
 ？>
