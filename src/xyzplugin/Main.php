@@ -28,7 +28,7 @@ class Main extends PluginBase implements Listener{
         $x = $sender->getX();
         $y = $sender->getY();
         $z = $sender->getZ();
-        $sender->sendMessage("§b[XYZ]§fあなたの座標はX=".x."、Y=".y."、Z=".z."、ワールド=".l."です。");
+        $sender->sendMessage("§b[XYZ]§fあなたの座標はX=".$x."、Y=".$y."、Z=".$z."、ワールド=".$l."です。");
       }else{
         $this->getlogger()->warning("サーバー内で実行して下さい");
       }
