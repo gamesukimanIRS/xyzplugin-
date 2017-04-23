@@ -22,10 +22,10 @@ class Main extends PluginBase implements Listener{
     if($command->getName() == "xyz"){
       if($sender instanceof Player){
         $sender->getName();
-        $l = $player->getLevel();
-        $x = $player->getX();
-        $y = $player->getY();
-        $z = $player->getZ();
+        $l = $sender->getLevel();
+        $x = $sender->getX();
+        $y = $sender->getY();
+        $z = $sender->getZ();
         $sender->sendMessage("§b[XYZ]§fあなたの座標はX=".x."、Y=".y."、Z=".z."、ワールド=".l."です。");
       }else{
         $this->getlogger()->warning("サーバー内で実行して下さい");
