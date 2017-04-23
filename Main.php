@@ -21,10 +21,13 @@ class Main extends PluginBase implements Listener{
 if($player instanceof Player){
   switch ($args[0])
     case 'xyz':
-    $level->$player->getLevel();
-    $x->$player->getX();
-    $y->$player->getY();
-    $z->$player->getZ();
+    $sender->getName();
+    $l = $player->getLevel();
+    $x = $player->getX();
+    $y = $player->getY();
+    $z = $player->getZ();
+  
+  
   
   break;
 }else{
