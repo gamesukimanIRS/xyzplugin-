@@ -9,6 +9,8 @@ namespace xyzplugin;
 use pocketmine¥Player;
 use pocketmine¥command¥Command;
 use pocketmine¥command¥CommandSender;
+use pocketmine¥Server;
+use pocketmine¥plugin¥PluginBase;
 
 class Main extends PluginBase implements Listener{
   
