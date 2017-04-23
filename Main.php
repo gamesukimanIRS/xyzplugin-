@@ -29,7 +29,5 @@ class Main extends PluginBase implements Listener{
         $sender->sendMesaage("サーバー内で実行して下さい");
       }
     }
-        
-  
-
-？>
+  }
+}
