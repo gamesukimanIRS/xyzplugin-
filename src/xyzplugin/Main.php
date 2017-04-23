@@ -4,7 +4,7 @@
 * (c)gamesukimanIRS
 */
 
-namespace Xyzplugin;
+namespace xyzplugin;
 
 use pocketmine¥Player;
 use pocketmine¥command¥Command;
