@@ -16,23 +16,21 @@ class Main extends PluginBase implements Listener{
     $this->getlogger()->info("xyzpluginを読み込みました");
   }
   
-  public function onCommand(){
+  public function onCommand(CommandSender $sender, Command $command, $label, array $args){
     
-if($player instanceof Player){
   switch ($args[0])
     case 'xyz':
-    $sender->getName();
-    $l = $player->getLevel();
-    $x = $player->getX();
-    $y = $player->getY();
-    $z = $player->getZ();
-  
-  
-  
-  break;
-}else{
+    if($player instanceof Player){
+      $sender->getName();
+      $l = $player->getLevel();
+      $x = $player->getX();
+      $y = $player->getY();
+      $z = $player->getZ();
+      
+    }else{
   $sender->sendMesaage("サーバー内で実行して下さい");
-}
+    }
+    break;
         
   
 
