@@ -3,6 +3,7 @@ main: xyzplugin\main
 version: 1.0.0
 api: 3.0.0
 author: gamesukimanIRS
+authors: 僕にこプラグインについてたくさんの助言をして下さった皆様
 commands:
   xyz:
     description: "自分の座標を調べます。"
