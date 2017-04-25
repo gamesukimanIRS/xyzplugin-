@@ -6,12 +6,12 @@
 
 namespace xyzplugin;
 
-use pocketmine¥Player;
-use pocketmine¥command¥Command;
-use pocketmine¥command¥CommandSender;
-use pocketmine¥Server;
-use pocketmine¥plugin¥PluginBase;
-use pocketmine¥event¥Listener;
+use pocketmine\Player;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use pocketmine\Server;
+use pocketmine\plugin\PluginBase;
+use pocketmine\event\Listener;
 
 class Main extends PluginBase implements Listener{
   
@@ -25,8 +25,8 @@ class Main extends PluginBase implements Listener{
     if($command->getName() == "xyz"){
       if($sender instanceof Player){
         $sender->getName();
-        $level->getFolderName();
-        $l = $sender->getLevel();
+        $level->$sender->getlevel();
+        $l = $level->getFolderName();
         $x = $sender->getX();
         $y = $sender->getY();
         $z = $sender->getZ();
