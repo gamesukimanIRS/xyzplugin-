@@ -34,6 +34,7 @@ class Main extends PluginBase implements Listener{
         return true;
       }else{
         $this->getlogger()->warning("サーバー内で実行して下さい");
+        return true;
       }
     }
   }
