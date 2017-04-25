@@ -25,7 +25,7 @@ class Main extends PluginBase implements Listener{
     if($command->getName() == "xyz"){
       if($sender instanceof Player){
         $sender->getName();
-        $level->$sender->getlevel();
+        $level = $sender->getLevel();
         $l = $level->getFolderName();
         $x = $sender->getX();
         $y = $sender->getY();
