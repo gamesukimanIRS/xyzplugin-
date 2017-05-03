@@ -19,6 +19,9 @@
 namespace xyzplugin;
 
 use pocketmine\Player;
+use pocketmine\event\block\SignChangeEvent;
+use pocketmine\tile;
+use pocketmine\tile\Sign;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Server;
