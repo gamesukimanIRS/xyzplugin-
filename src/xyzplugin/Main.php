@@ -28,7 +28,8 @@ use pocketmine\event\Listener;
 class Main extends PluginBase implements Listener{
   
   public function onEnable(){
-    $this->getlogger()->info("xyzpluginを読み込みました。作者:gamesukimanIRS");
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $this->getlogger()->info("xyzplugin+αを読み込みました。作者:gamesukimanIRS");
     $this->getlogger()->warning("製作者偽りと二次配布、改造、改造配布はおやめ下さい。");
     $this->getlogger()->info("このプラグインを使用する際はどこかにプラグイン名「xyzplugin」と作者名「gamesukimanIRS」を記載する事を推奨します。");
   }
@@ -50,11 +51,6 @@ class Main extends PluginBase implements Listener{
       }
     }
   }
- 	public function onEnable(){
-		//ここを改造するのはやめてください。
-		$this->getlogger()->notice("死んでみようか(＾ω＾)ﾆｺﾆｺ");
-		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-	}
   
 	public function onSignChange(SignChangeEvent $event){
 		$text = $event->getLines();
