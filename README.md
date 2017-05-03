@@ -1,4 +1,4 @@
-# xyzplugin
+# xyzplugin+α
 gamesukimanIRSが初めて作ったオリジナルプラグインです。
 
 /xyzと打つと自分の座標を調べる事ができます。
