@@ -19,9 +19,9 @@
 namespace xyzplugin;
 
 use pocketmine\Player;
-use pocketmine\event\block\SignChangeEvent;
 use pocketmine\tile;
 use pocketmine\tile\Sign;
+use pocketmine\event\block\SignChangeEvent;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Server;
@@ -145,6 +145,12 @@ class Main extends PluginBase implements Listener{
 						$reason = "§a申告があれば修復します";
 						break;
 
+					case 'muimi-hogo':
+						$todaydd = 7;
+						$daimei = "§l§6⚠§r§c警告:違法土地保護§l§6⚠";
+						$reason = "§a無意味な土地保護は禁止です";
+						break;
+
 					default:
 						$daimei = "§c正しい形式でやり直してください";
 						$reason = "";
@@ -155,41 +161,41 @@ class Main extends PluginBase implements Listener{
 				}
 				$todayd = $todayd + $todaydd;
 				if($todaym == 1 and $todayd >= 31){
-					$todaym = 2;
-					$todayd = 1;
+					$todaym = "02";
+					$todayd = "01";
 				}elseif($todaym == 2 and $todayd >= 28){
-					$todaym = 3;
-					$todayd = 1;
+					$todaym = "03";
+					$todayd = "01";
 				}elseif($todaym == 3 and $todayd >= 31){
-					$todaym = 4;
-					$todayd = 1;
+					$todaym = "04";
+					$todayd = "01";
 				}elseif($todaym == 4 and $todayd >= 30){
-					$todaym = 5;
-					$todayd = 1;
+					$todaym = "05";
+					$todayd = "01";
 				}elseif($todaym == 5 and $todayd >= 31){
-					$todaym = 6;
-					$todayd = 1;
+					$todaym = "06";
+					$todayd = "01";
 				}elseif($todaym == 6 and $todayd >= 30){
-					$todaym = 7;
-					$todayd = 1;
+					$todaym = "07";
+					$todayd = "01";
 				}elseif($todaym == 7 and $todayd >= 31){
-					$todaym = 8;
-					$todayd = 1;
+					$todaym = "08";
+					$todayd = "01";
 				}elseif($todaym == 8 and $todayd >= 31){
-					$todaym = 9;
-					$todayd = 1;
+					$todaym = "09";
+					$todayd = "01";
 				}elseif($todaym == 9 and $todayd >= 30){
-					$todaym = 10;
-					$todayd = 1;
+					$todaym = "10";
+					$todayd = "01";
 				}elseif($todaym == 10 and $todayd >= 31){
-					$todaym = 11;
-					$todayd = 1;
+					$todaym = "11";
+					$todayd = "01";
 				}elseif($todaym == 11 and $todayd >= 30){
-					$todaym = 12;
-					$todayd = 1;
+					$todaym = "12";
+					$todayd = "01";
 				}elseif($todaym == 12 and $todayd >= 31){
-					$todaym = 1;
-					$todayd = 1;
+					$todaym = "01";
+					$todayd = "01";
 				}
 				$today = "§c撤去日　§d".$todaym."/".$todayd."";
 				$event->setLine(0,$daimei);
