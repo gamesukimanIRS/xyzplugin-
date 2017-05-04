@@ -30,31 +30,57 @@ use pocketmine\event\Listener;
 
 class Main extends PluginBase implements Listener{
   
-  public function onEnable(){
-    $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    $this->getlogger()->info("xyzplugin+αを読み込みました。作者:gamesukimanIRS");
-    $this->getlogger()->warning("製作者偽りと二次配布、改造、改造配布はおやめ下さい。");
-    $this->getlogger()->info("このプラグインを使用する際はどこかにプラグイン名「xyzplugin」と作者名「gamesukimanIRS」を記載する事を推奨します。");
-  }
+	public function onEnable(){
+    	$this->getServer()->getPluginManager()->registerEvents($this, $this);
+    	$this->getlogger()->info("xyzplugin+αを読み込みました。作者:gamesukimanIRS");
+    	$this->getlogger()->warning("製作者偽りと二次配布、改造、改造配布はおやめ下さい。");
+    	$this->getlogger()->info("このプラグインを使用する際はどこかにプラグイン名「xyzplugin」と作者名「gamesukimanIRS」を記載する事を推奨します。");
+	}
    
-  public function onCommand(CommandSender $sender, Command $command, $label, array $args){
-    if($command->getName() == "xyz"){
-      if($sender instanceof Player){
-        $sender->getName();
-        $level = $sender->getLevel();
-        $l = $level->getFolderName();
-        $x = $sender->getX();
-        $y = $sender->getY();
-        $z = $sender->getZ();
-        $sender->sendMessage("§b[XYZ]§fあなたの座標はX=".$x."、Y=".$y."、Z=".$z."、ワールド=".$l."です。");
-        return true;
-      }else{
-        $this->getlogger()->warning("サーバー内で実行して下さい");
-        return true;
-      }
-    }
-  }
-  
+  	public function onCommand(CommandSender $sender, Command $command, $label, array $args){
+    	if($command->getName() == "xyz"){
+    		if($sender instanceof Player){
+        		$sender->getName();
+        		$level = $sender->getLevel();
+        		$l = $level->getFolderName();
+        		$x = $sender->getX();
+        		$y = $sender->getY();
+        		$z = $sender->getZ();
+        		$sender->sendMessage("§b[XYZ]§fあなたの座標はX=".$x."、Y=".$y."、Z=".$z."、ワールド=".$l."です。");
+        		return true;
+      		}else{
+        		$this->getlogger()->warning("サーバー内で実行して下さい");
+        	return true;
+      		}
+ 		}elseif($command->getName() == "xyzhelp"){
+ 			$sender->sendMessage("§b=====xyzpluginヘルプ(1/1)=====");
+ 			$sender->sendMessage("§a/xyz §c- §aあなたの座標・ワールドを取得し表示します");
+ 			$sender->sendMessage("§a/xyzhelp §c- §aこのヘルプを表示します");
+ 			$sender->sendMessage("警告看板については/xyzhelp-keikokuをご覧下さい");
+ 			$sender->sendMessage("§b============================");
+ 			return true;
+ 		}elseif($command->getName() == "xyzhelp-keikoku"){
+ 			$sender->sendMessage("違法物件の警告看板は/xyzhelp-keikoku-bukkenをご覧下さい");
+ 			return true;
+ 		}elseif($command->getName() == "xyzhelp-keikoku-bukken"){
+ 			$sender->sendMessage("§b==xyzplugin警告看板(違法物件)ヘルプ(1/1)==");
+ 			$sender->sendMessage("§a※一行目は常に「bukken」です。下は二行目に書く文字です。");
+ 			$sender->sendMessage("");
+ 			$sender->sendMessage("凡例:(書く文字) - (内容)");
+ 			$sender->sendMessage("miti - 道から一マス離してください");
+ 			$sender->sendMessage("hochi - 放置物件");
+ 			$sender->sendMessage("tonari-tatemono - 隣から一マス建物を離してください");
+ 			$sender->sendMessage("tonari-hogo - 隣から一マス土地保護を離してください");
+ 			$sender->sendMessage("arasi - 荒らし物件");
+ 			$sender->sendMessage("muimi-hogo - 無意味な保護は禁止です");
+ 			$sender->sendMessage("ganban - 岩盤から一マス離してください");
+ 			$sender->sendMessage("kuutyuu - 空中建築は禁止です");
+ 			$sender->sendMessage("takasugi - 建築高度は最大50ブロックです");
+ 			$sender->sendMessage("tikakentiku - 地下建築は禁止です");
+ 			$sender->sendMessage("=======================================");
+ 			return true;
+ 		}
+  	}
 	public function onSignChange(SignChangeEvent $event){
 		$text = $event->getLines();
 		switch ($text[0]) {
@@ -150,6 +176,25 @@ class Main extends PluginBase implements Listener{
 						$daimei = "§l§6⚠§r§c警告:違法土地保護§l§6⚠";
 						$reason = "§a無意味な土地保護は禁止です";
 						break;
+
+					case 'ganban':
+						$todaydd = 10;
+						$reason = "§a最低でも岩盤から1マス離してください";
+						break;
+
+					case 'kuutyuu':
+						$todaydd = 10;
+						$reason = "§a空中建築は禁止です";
+						break;
+
+					case 'takasugi':
+						$todaydd = 10;
+						$reason = "§a建設高度は50ブロックまでです";
+						break;
+
+					case 'tikakentiku':
+						$todaydd = 7;
+						$reason = "§a地下建築は禁止です";
 
 					default:
 						$daimei = "§c正しい形式でやり直してください";
