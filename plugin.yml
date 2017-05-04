@@ -8,4 +8,13 @@ commands:
   xyz:
     description: "自分の座標を調べます。"
     usage: "/xyz"
+  xyzhelp:
+    description: "xyzpluginのヘルプを表示します"
+    usage: "/xyzhelp"
+  xyzhelp-keikoku:
+    description: "xyzpluginの警告看板のヘルプを表示します"
+    usage: "/xyzhelp-keikoku"
+  xyzhelp-keikoku-bukken:
+    description: "xyzpluginの違法物件の警告看板のヘルプを表示します"
+    usage: "/xyzhelp-keikoku-bukken"
 
