@@ -56,28 +56,46 @@ class Main extends PluginBase implements Listener{
  			$sender->sendMessage("§b=====xyzpluginヘルプ(1/1)=====");
  			$sender->sendMessage("§a/xyz §c- §aあなたの座標・ワールドを取得し表示します");
  			$sender->sendMessage("§a/xyzhelp §c- §aこのヘルプを表示します");
- 			$sender->sendMessage("警告看板については/xyzhelp-keikokuをご覧下さい");
+ 			$sender->sendMessage("看板については/xyzhelp-kanbanをご覧下さい");
  			$sender->sendMessage("§b============================");
  			return true;
- 		}elseif($command->getName() == "xyzhelp-keikoku"){
- 			$sender->sendMessage("違法物件の警告看板は/xyzhelp-keikoku-bukkenをご覧下さい");
+ 		}elseif($command->getName() == "xyzhelp-kanban"){
+ 			$sender->sendMessage("§b===============");
+ 			$sender->sendMessage("警告看板の警告看板は/xyzhelp-kanban-keikokuをご覧下さい");
+ 			$sender->sendMessage("許可証の看板は/xyzhelp-kanban-kyokasyouをご覧下さい");
+ 			$sender->sendMessage("§b===============");
  			return true;
- 		}elseif($command->getName() == "xyzhelp-keikoku-bukken"){
- 			$sender->sendMessage("§b==xyzplugin警告看板(違法物件)ヘルプ(1/1)==");
- 			$sender->sendMessage("§a※一行目は常に「bukken」です。下は二行目に書く文字です。");
- 			$sender->sendMessage("");
- 			$sender->sendMessage("凡例:(書く文字) - (内容)");
+ 		}elseif($command->getName() == "xyzhelp-kanban-keikoku"){
+	 		$sender->sendMessage("§b==xyzplugin警告看板ヘルプ(1/1)======");
+	 		$sender->sendMessage("§a※一行目は常に「bukken」です。下は二行目に書く文字です。");
+	 		$sender->sendMessage("");
+			$sender->sendMessage("凡例:(書く文字) - (内容)");
  			$sender->sendMessage("miti - 道から一マス離してください");
  			$sender->sendMessage("hochi - 放置物件");
  			$sender->sendMessage("tonari-tatemono - 隣から一マス建物を離してください");
- 			$sender->sendMessage("tonari-hogo - 隣から一マス土地保護を離してください");
- 			$sender->sendMessage("arasi - 荒らし物件");
- 			$sender->sendMessage("muimi-hogo - 無意味な保護は禁止です");
- 			$sender->sendMessage("ganban - 岩盤から一マス離してください");
- 			$sender->sendMessage("kuutyuu - 空中建築は禁止です");
+	 		$sender->sendMessage("tonari-hogo - 隣から一マス土地保護を離してください");
+	 		$sender->sendMessage("arasi - 荒らし物件");
+	 		$sender->sendMessage("muimi-hogo - 無意味な保護は禁止です");
+	 		$sender->sendMessage("ganban - 岩盤から一マス離してください");
+	 		$sender->sendMessage("kuutyuu - 空中建築は禁止です");
  			$sender->sendMessage("takasugi - 建築高度は最大50ブロックです");
  			$sender->sendMessage("tikakentiku - 地下建築は禁止です");
- 			$sender->sendMessage("=======================================");
+ 			$sender->sendMessage("okisugi-garasu - ガラスの置きすぎです");
+ 			$sender->sendMessage("okisugi-kougen - 光源の置きすぎです");
+ 			$sender->sendMessage("ie - ここに家を建ててはいけません");
+ 			$sender->sendMessage("hyousatu - 表札をつけてください");
+			$sender->sendMessage("§b=======================================");
+ 			return true;
+ 		}elseif($command->getName() == "xyzhelp-keikoku-kyokasyou"){
+ 			$sender->sendMessage("§b==xyzplugin許可証看板ヘルプ(1/1)==");
+ 			$sender->sendMessage("§a※一行目は常に「kyokasyou」です。下は二行目に書く文字です。");
+ 			$sender->sendMessage("garasu - ガラス大量使用許可");
+ 			$sender->sendMessage("kougen - 光源大量使用許可");
+ 			$sender->sendMessage("mizu - 水使用許可");
+ 			$sender->sendMessage("tikakentiku - 地下建築許可");
+ 			$sender->sendMessage("kuutyuu - 空中建築許可");
+ 			$sender->sendMessage("takai - 建設高度超過許可");
+ 			$sender->sendMessage("§b===============================");
  			return true;
  		}
   	}
@@ -125,11 +143,86 @@ class Main extends PluginBase implements Listener{
 				$player = $event->getPlayer()->getName();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
 				break;
+			case 'sikosiko':
+				$event->setLine(0,"§6下ネタはやめて下さい");
+				$player = $event->getPlayer()->getName();
+				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				break;
+			case 'しこしこ':
+				$event->setLine(0,"§6下ネタはやめて下さい");
+				$player = $event->getPlayer()->getName();
+				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				break;
+			case 'シコシコ':
+				$event->setLine(0,"§6下ネタはやめて下さい");
+				$player = $event->getPlayer()->getName();
+				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				break;
+			case '4545':
+				$event->setLine(0,"§6下ネタはやめて下さい");
+				$player = $event->getPlayer()->getName();
+				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				break;
 
 		}
 		$player = $event->getPlayer();
 		if($player->isOp()){
-			if($text[0] == "bukken"){
+			if($text[0] == "kyokasyou"){
+				$reason = $text[2];
+				$today = date("y/m/d");
+				$name = $event->getPlayer()->getName();
+				$daimei = "§b§lⓘ§r§b[許可証 ".$today."]";
+				$name2 = "§a§l".$name."";
+				$naiyou = "";
+				switch ($text[1]) {
+					/*見本※これをテンプレに【】を書き換えてくれれば動くと思います。下のコードも参考に(参考にならないかもだけど
+					case '【ここを二段目に入力する文字】':
+						$naiyou = "【どういう許可にするか。二段目に表示されるメッセージ。】";
+						break;
+
+					改造場所(改造許可場所)は以上です。改造するところもないのでそれ以外は基本触らないようにお願いします。
+					*/
+					case 'garasu':
+						$naiyou = "§aガラスの大量使用を許可";
+						break;
+
+					case 'kougen':
+						$naiyou = "§a光源の大量使用を許可";
+						break;
+
+					case 'mizu':
+						$naiyou = "§a水の使用を許可";
+						break;
+
+					case 'tikakentiku':
+						$naiyou = "§a地下建築を許可";
+						break;
+
+					case 'kuutyuu':
+						$naiyou = "§a空中建築を許可";
+						break;
+
+					case 'takai':
+						$naiyou = "§a建築最大高度超を許可";
+						break;
+
+
+					default:
+						$daimei = "§c正しい形式で入力してください";
+						$reason = "";
+						$naiyou = "";
+						$name2 = "";
+						break;
+				}
+				if($reason == ""){
+					$reason = "§c未記入";
+				}
+				$event->setLine(0,$daimei);
+				$event->setLine(1,$naiyou);
+				$event->setLine(2,"§d理由:§b".$reason."");
+				$event->setLine(3,$name2);
+		
+			}elseif($text[0] == "bukken"){
 				$todaym = date("m");
 				$todayd = date("d");
 				$name = $event->getPlayer()->getName();
@@ -139,7 +232,7 @@ class Main extends PluginBase implements Listener{
 					/*見本※これをテンプレに【】を書き換えてくれれば動くと思います。下のコードも参考に(参考にならないかもだけど
 					case '【ここを二段目に入力する文字】':
 						$todaydd = 【警告から何日後に撤去するか※数字】;
-						$daimei = "【題名を書き換える場合のみ。そのままの場合はこの行は消す。】
+						$daimei = "【題名を書き換える場合のみ。そのままの場合はこの行は消す。】";
 						$reason = "【どういう警告にするか。二段目に表示されるメッセージ。】";
 						break;
 
@@ -195,6 +288,27 @@ class Main extends PluginBase implements Listener{
 					case 'tikakentiku':
 						$todaydd = 7;
 						$reason = "§a地下建築は禁止です";
+						break;
+
+					case 'okisugi-garasu':
+						$todaydd = 10;
+						$reason = "§aガラスの量を減らしてください";
+						break;
+
+					case 'okisugi-kougen':
+						$todaydd = 10;
+						$reason = "§a光源の量を減らしてください";
+						break;
+
+					case 'ie':
+						$todaydd = 3;
+						$reason = "§aここに家を建てることはできません";
+						break;
+
+					case 'hyousatu':
+						$todaydd = 10;
+						$reason = "§a表札をつけてください";
+						break;
 
 					default:
 						$daimei = "§c正しい形式でやり直してください";
