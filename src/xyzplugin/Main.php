@@ -104,60 +104,16 @@ class Main extends PluginBase implements Listener{
 		switch ($text[0]) {
 			//下のcaseは気分が悪くなる恐れがありますのでご注意ください
 			case 'oppai':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'おっぱい':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'sex':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'セックス':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'tinko':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'ちんこ':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'manko':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'まんこ':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'sikosiko':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'しこしこ':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case 'シコシコ':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				break;
 			case '4545':
 				$event->setLine(0,"§6下ネタはやめて下さい");
 				$player = $event->getPlayer()->getName();
