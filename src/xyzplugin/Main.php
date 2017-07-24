@@ -31,10 +31,13 @@ use pocketmine\event\Listener;
 class Main extends PluginBase implements Listener{
   
 	public function onEnable(){
+		$PluginName = "xyzplugin+α";
+		$version = "2.3.0";
+
     	$this->getServer()->getPluginManager()->registerEvents($this, $this);
-    	$this->getlogger()->info("xyzplugin+αを読み込みました。作者:gamesukimanIRS");
+    	$this->getlogger()->info($PluginName."Version:".$version."を読み込みました。作者:gamesukimanIRS");
     	$this->getlogger()->warning("製作者偽りと二次配布、改造、改造配布はおやめ下さい。");
-    	$this->getlogger()->info("このプラグインを使用する際はどこかにプラグイン名「xyzplugin」と作者名「gamesukimanIRS」を記載する事を推奨します。");
+    	$this->getlogger()->info("このプラグインを使用する際はどこかにプラグイン名「".$PluginName."」と作者名「gamesukimanIRS」を記載する事を推奨します。");
 	}
    
   	public function onCommand(CommandSender $sender, Command $command, $label, array $args){
@@ -46,57 +49,90 @@ class Main extends PluginBase implements Listener{
         		$x = $sender->getX();
         		$y = $sender->getY();
         		$z = $sender->getZ();
-        		$sender->sendMessage("§b[XYZ]§fあなたの座標はX=".$x."、Y=".$y."、Z=".$z."、ワールド=".$l."です。");
+        		$sender->sendMessage("§b[XYZ]§fあなたの座標は§aX=".$x."、§bY=".$y."、§dZ=".$z."、§eワールド=".$l."です。");
         		return true;
       		}else{
         		$this->getlogger()->warning("サーバー内で実行して下さい");
         	return true;
       		}
  		}elseif($command->getName() == "xyzhelp"){
- 			$sender->sendMessage("§b=====xyzpluginヘルプ(1/1)=====");
- 			$sender->sendMessage("§a/xyz §c- §aあなたの座標・ワールドを取得し表示します");
- 			$sender->sendMessage("§a/xyzhelp §c- §aこのヘルプを表示します");
- 			$sender->sendMessage("看板については/xyzhelp-kanbanをご覧下さい");
- 			$sender->sendMessage("§b============================");
- 			return true;
- 		}elseif($command->getName() == "xyzhelp-kanban"){
- 			$sender->sendMessage("§b===============");
- 			$sender->sendMessage("警告看板の警告看板は/xyzhelp-kanban-keikokuをご覧下さい");
- 			$sender->sendMessage("許可証の看板は/xyzhelp-kanban-kyokasyouをご覧下さい");
- 			$sender->sendMessage("§b===============");
- 			return true;
- 		}elseif($command->getName() == "xyzhelp-kanban-keikoku"){
-	 		$sender->sendMessage("§b==xyzplugin警告看板ヘルプ(1/1)======");
-	 		$sender->sendMessage("§a※一行目は常に「bukken」です。下は二行目に書く文字です。");
-	 		$sender->sendMessage("");
-			$sender->sendMessage("凡例:(書く文字) - (内容)");
- 			$sender->sendMessage("miti - 道から一マス離してください");
- 			$sender->sendMessage("hochi - 放置物件");
- 			$sender->sendMessage("tonari-tatemono - 隣から一マス建物を離してください");
-	 		$sender->sendMessage("tonari-hogo - 隣から一マス土地保護を離してください");
-	 		$sender->sendMessage("arasi - 荒らし物件");
-	 		$sender->sendMessage("muimi-hogo - 無意味な保護は禁止です");
-	 		$sender->sendMessage("ganban - 岩盤から一マス離してください");
-	 		$sender->sendMessage("kuutyuu - 空中建築は禁止です");
- 			$sender->sendMessage("takasugi - 建築高度は最大50ブロックです");
- 			$sender->sendMessage("tikakentiku - 地下建築は禁止です");
- 			$sender->sendMessage("okisugi-garasu - ガラスの置きすぎです");
- 			$sender->sendMessage("okisugi-kougen - 光源の置きすぎです");
- 			$sender->sendMessage("ie - ここに家を建ててはいけません");
- 			$sender->sendMessage("hyousatu - 表札をつけてください");
-			$sender->sendMessage("§b=======================================");
- 			return true;
- 		}elseif($command->getName() == "xyzhelp-keikoku-kyokasyou"){
- 			$sender->sendMessage("§b==xyzplugin許可証看板ヘルプ(1/1)==");
- 			$sender->sendMessage("§a※一行目は常に「kyokasyou」です。下は二行目に書く文字です。");
- 			$sender->sendMessage("garasu - ガラス大量使用許可");
- 			$sender->sendMessage("kougen - 光源大量使用許可");
- 			$sender->sendMessage("mizu - 水使用許可");
- 			$sender->sendMessage("tikakentiku - 地下建築許可");
- 			$sender->sendMessage("kuutyuu - 空中建築許可");
- 			$sender->sendMessage("takai - 建設高度超過許可");
- 			$sender->sendMessage("§b===============================");
- 			return true;
+ 			switch ($args[0]) {
+ 				case 'cmd':
+ 					$sender->sendMessage("§b=====xyzplugin Commandヘルプ(1/1)=====");
+ 					$sender->sendMessage("§a/xyz §c- §aあなたがいる座標・ワールドを取得し表示します");
+ 					$sender->sendMessage("§a/xyzhelp §c- §aヘルプ(これ)を表示します");
+ 					$sender->sendMessage("§b====================================");
+ 					return true;
+ 					break;
+
+ 				case 'about':
+ 					$Version = "2.3.0";
+ 					$sender->sendMessage("§b=====xyzplugin Version".$Version."=====");
+ 					$sender->sendMessage("§aQ.xyzplugin とは？");
+ 					$sender->sendMessage("§cA.gamesukimanIRSが初めて作ったオリジナルプラグインです。");
+ 					$sender->sendMessage("§c 元々は/xyzコマンドだけでしたが、徐々に膨大になってきました。");
+ 					$sender->sendMessage("§aQ.主な機能は？");
+ 					$sender->sendMessage("§cA./xyzによる座標を取得、他に警告看板と許可証看板を立てる機能です");
+ 					$sender->sendMessage("");
+ 					$sender->sendMessage("§b=©CopyLight gamesukimanIRS All Rights Reversed=");
+ 					return true;
+ 					break;
+
+ 				case 'kanban':
+ 					switch ($args[1]) {
+ 						case'keikoku':
+ 							$sender->sendMessage("§b=====xyzplugin 警告看板ヘルプ(1/1)=====");
+ 							$sender->sendMessage("§a二行目に書く文字 §c- §a内容");
+ 							$sender->sendMessage("§amiti §c- §a道から最低1マス離して下さい");
+ 							$sender->sendMessage("§ahochi §c- §a30日以内に持ち主のログインがない場合撤去");
+ 							$sender->sendMessage("§atonari-tatemono §c- §a隣の建物から最低1マス離してください");
+ 							$sender->sendMessage("§atonari-hogo §c- §a隣の土地保護から最低1マス離してください");
+ 							$sender->sendMessage("§aarasi §c- §a荒らし物件/申告があれば修復します");
+ 							$sender->sendMessage("§amuimi-hogo §c- §a無意味な土地保護は禁止です");
+ 							$sender->sendMessage("§aganban §c- §a最低でも岩盤から1マス離してください");
+ 							$sender->sendMessage("§akuutyuu §c- §a空中建築は禁止です");
+ 							$sender->sendMessage("§atakasugi §c- §a建設高度は50ブロックまでです");
+ 							$sender->sendMessage("§atikakentiku §c- §a地下建築は禁止です");
+ 							$sender->sendMessage("§aokisugi-garasu §c- §aガラスの量を減らしてください");
+ 							$sender->sendMessage("§aokisugi-kougen §c- §a光源の量を減らしてください");
+ 							$sender->sendMessage("§aie §c- §aここに家を建てることはできません");
+ 							$sender->sendMessage("§ahyousatu §c- §a表札をつけてください");
+ 							$sender->sendMessage("§b====================================");
+ 							return true;
+ 							break;
+
+ 						case'kyokasyou':
+ 							$sender->sendMessage("§b=====xyzplugin 許可証看板ヘルプ(1/1)=====");
+ 							$sender->sendMessage("§a二行目に書く文字 §c- §a内容");
+ 							$sender->sendMessage("§agarasu §c- §aガラスの大量使用を許可");
+ 							$sender->sendMessage("§akougen §c- §a光源の大量使用を許可");
+ 							$sender->sendMessage("§amizu §c- §a水の使用を許可");
+ 							$sender->sendMessage("§atikakentiku §c- §a地下建築を許可");
+ 							$sender->sendMessage("§akuutyuu §c- §a空中建築を許可");
+ 							$sender->sendMessage("§atakai §c- §a建築最大高度超を許可");
+ 							$sender->sendMessage("§b====================================");
+ 							return true;
+ 							break;
+
+ 						default:
+ 							$sender->sendMessage("§b=====xyzplugin 看板ヘルプ(1/1)=====");
+ 							$sender->sendMessage("§a/xyzhelp kanban keikoku §c- §a警告看板のヘルプを表示します");
+ 							$sender->sendMessage("§a/xyzhelp kanban kyokasyou §c- §a許可証看板のヘルプを表示します");
+ 							$sender->sendMessage("§b====================================");
+ 							return true;
+ 							break;
+ 					}
+ 				break;
+ 				
+ 				default:
+ 					$sender->sendMessage("$b=====xyzpluginヘルプ=====");
+ 					$sender->sendMessage("§a/xyzhelp cmd §c- §axyzプラグインのコマンドのヘルプを表示します");
+ 					$sender->sendMessage("§a/xyzhelp kanban §c- §axyzプラグインの看板のヘルプを表示します");
+ 					$sender->sendMessage("§a/xyzhelp about §c- §aこのプラグインの詳細を表示します");
+ 					$sender->sendMessage("§b=======================");
+ 					return true;
+ 					break;
+ 			}
  		}
   	}
 	public function onSignChange(SignChangeEvent $event){
@@ -105,63 +141,76 @@ class Main extends PluginBase implements Listener{
 			//下のcaseは気分が悪くなる恐れがありますのでご注意ください
 			case 'oppai':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
+				$name = $player->getName();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'おっぱい':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'sex':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'セックス':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'tinko':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'ちんこ':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'manko':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'まんこ':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'sikosiko':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'しこしこ':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case 'シコシコ':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 			case '4545':
 				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer()->getName();
+				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
+				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
 				break;
 
 		}
@@ -363,8 +412,13 @@ class Main extends PluginBase implements Listener{
 				$event->setLine(3,$name2);
 			}
 		}else{
-			$player->sendTip("§cあなたには看板を立てる権限がありません");
-			return true;
+			if($text[0] == "bukken"){
+				$player->sendTip("§cあなたには警告看板を立てる権限がありません");
+				return true;
+			}elseif($text[0] == "kyokasyou"){
+				$player->sendTip("§cあなたには許可証看板を立てる権限がありません");
+				return true;
+			}
 		}
 	}
 }
