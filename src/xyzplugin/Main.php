@@ -1,9 +1,8 @@
 <?php
 
 /*hajime te no orijinaru plugin
-* (c)gamesukimanIRS
-*/
-/*
+(c)gamesukimanIRS
+
 |~~~~~~~~|  |\     /|   /~~~~~\  ~~~~~  |~~~~\    /~~~~~\
 |           | \   / |  /      |    |    |     |  /      |
 |    ~~~~|  |  \_/  |  |______     |    |____/   |_______
