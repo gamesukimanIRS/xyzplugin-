@@ -1,9 +1,8 @@
 <?php
 
 /*hajime te no orijinaru plugin
-* (c)gamesukimanIRS
-*/
-/*
+(c)gamesukimanIRS
+
 |~~~~~~~~|  |\     /|   /~~~~~\  ~~~~~  |~~~~\    /~~~~~\
 |           | \   / |  /      |    |    |     |  /      |
 |    ~~~~|  |  \_/  |  |______     |    |____/   |_______
@@ -12,7 +11,7 @@
 (c)gamesukimanIRS
 
 注意
-コードは基本汚いです。見にくいです。参考にしたかったらすみませんが他をあたってください。
+コードは基本汚いです。関数とかもあったもの使ってるだけです
 */
 
 
@@ -56,93 +55,84 @@ class Main extends PluginBase implements Listener{
         	return true;
       		}
  		}elseif($command->getName() == "xyzhelp"){
- 			if(isset($args[0])){
- 				switch ($args[0]) {
- 					case 'cmd':
- 						$sender->sendMessage("§b=====xyzplugin Commandヘルプ(1/1)=====");
-	 					$sender->sendMessage("§a/xyz §c- §aあなたがいる座標・ワールドを取得し表示します");
-	 					$sender->sendMessage("§a/xyzhelp §c- §aヘルプ(これ)を表示します");
-	 					$sender->sendMessage("§b====================================");
-	 					return true;
-	 					break;
-
- 					case 'about':
- 						$Version = "2.3.0";
- 						$sender->sendMessage("§b=====xyzplugin Version".$Version."=====");
- 						$sender->sendMessage("§aQ.xyzplugin とは？");
- 						$sender->sendMessage("§cA.gamesukimanIRSが初めて作ったオリジナルプラグインです。");
- 						$sender->sendMessage("§c 元々は/xyzコマンドだけでしたが、徐々に膨大になってきました。");
- 						$sender->sendMessage("§aQ.主な機能は？");
- 						$sender->sendMessage("§cA./xyzによる座標を取得、他に警告看板と許可証看板を立てる機能です");
- 						$sender->sendMessage("");
- 						$sender->sendMessage("§b=©CopyLight gamesukimanIRS All Rights Reversed=");
- 						return true;
- 						break;
-	
- 					case 'kanban':
- 						switch ($args[1]) {
- 							case'keikoku':
- 								$sender->sendMessage("§b=====xyzplugin 警告看板ヘルプ(1/1)=====");
- 								$sender->sendMessage("§a二行目に書く文字 §c- §a内容");
- 								$sender->sendMessage("§amiti §c- §a道から最低1マス離して下さい");
- 								$sender->sendMessage("§ahochi §c- §a30日以内に持ち主のログインがない場合撤去");
- 								$sender->sendMessage("§atonari-tatemono §c- §a隣の建物から最低1マス離してください");
- 								$sender->sendMessage("§atonari-hogo §c- §a隣の土地保護から最低1マス離してください");
- 								$sender->sendMessage("§aarasi §c- §a荒らし物件/申告があれば修復します");
-	 							$sender->sendMessage("§amuimi-hogo §c- §a無意味な土地保護は禁止です");
- 								$sender->sendMessage("§aganban §c- §a最低でも岩盤から1マス離してください");
- 								$sender->sendMessage("§akuutyuu §c- §a空中建築は禁止です");
- 								$sender->sendMessage("§atakasugi §c- §a建設高度は50ブロックまでです");
- 								$sender->sendMessage("§atikakentiku §c- §a地下建築は禁止です");
- 								$sender->sendMessage("§aokisugi-garasu §c- §aガラスの量を減らしてください");
- 								$sender->sendMessage("§aokisugi-kougen §c- §a光源の量を減らしてください");
- 								$sender->sendMessage("§aie §c- §aここに家を建てることはできません");
- 								$sender->sendMessage("§ahyousatu §c- §a表札をつけてください");
- 								$sender->sendMessage("§b====================================");
- 								return true;
- 								break;
-	
- 							case'kyokasyou':
- 								$sender->sendMessage("§b=====xyzplugin 許可証看板ヘルプ(1/1)=====");
- 								$sender->sendMessage("§a二行目に書く文字 §c- §a内容");
- 								$sender->sendMessage("§agarasu §c- §aガラスの大量使用を許可");
- 								$sender->sendMessage("§akougen §c- §a光源の大量使用を許可");
- 								$sender->sendMessage("§amizu §c- §a水の使用を許可");
- 								$sender->sendMessage("§atikakentiku §c- §a地下建築を許可");
- 								$sender->sendMessage("§akuutyuu §c- §a空中建築を許可");
- 								$sender->sendMessage("§atakai §c- §a建築最大高度超を許可");
- 								$sender->sendMessage("§b====================================");
- 								return true;
- 								break;
-	
- 							default:
- 								$sender->sendMessage("§b=====xyzplugin 看板ヘルプ(1/1)=====");
- 								$sender->sendMessage("§a/xyzhelp kanban keikoku §c- §a警告看板のヘルプを表示します");
- 								$sender->sendMessage("§a/xyzhelp kanban kyokasyou §c- §a許可証看板のヘルプを表示します");
- 								$sender->sendMessage("§b====================================");
- 								return true;
- 								break;
- 						}
+ 			switch ($args[0]) {
+ 				case 'cmd':
+ 					$sender->sendMessage("§b=====xyzplugin Commandヘルプ(1/1)=====");
+ 					$sender->sendMessage("§a/xyz §c- §aあなたがいる座標・ワールドを取得し表示します");
+ 					$sender->sendMessage("§a/xyzhelp §c- §aヘルプ(これ)を表示します");
+ 					$sender->sendMessage("§b====================================");
+ 					return true;
  					break;
- 					
- 					default:
- 						$sender->sendMessage("§b=====xyzpluginヘルプ=====");
- 						$sender->sendMessage("§a/xyzhelp cmd §c- §axyzプラグインのコマンドのヘルプを表示します");
- 						$sender->sendMessage("§a/xyzhelp kanban §c- §axyzプラグインの看板のヘルプを表示します");
- 						$sender->sendMessage("§a/xyzhelp about §c- §aこのプラグインの詳細を表示します");
- 						$sender->sendMessage("§b=======================");
- 						return true;
- 						break;
- 				}
- 			}else{
- 				$sender->sendMessage("§b=====xyzpluginヘルプ=====");
- 				$sender->sendMessage("§a/xyzhelp cmd §c- §axyzプラグインのコマンドのヘルプを表示します");
- 				$sender->sendMessage("§a/xyzhelp kanban §c- §axyzプラグインの看板のヘルプを表示します");
- 				$sender->sendMessage("§a/xyzhelp about §c- §aこのプラグインの詳細を表示します");
- 				$sender->sendMessage("§b=======================");
- 				return true;
+
+ 				case 'about':
+ 					$Version = "2.3.0";
+ 					$sender->sendMessage("§b=====xyzplugin Version".$Version."=====");
+ 					$sender->sendMessage("§aQ.xyzplugin とは？");
+ 					$sender->sendMessage("§cA.gamesukimanIRSが初めて作ったオリジナルプラグインです。");
+ 					$sender->sendMessage("§c 元々は/xyzコマンドだけでしたが、徐々に膨大になってきました。");
+ 					$sender->sendMessage("§aQ.主な機能は？");
+ 					$sender->sendMessage("§cA./xyzによる座標を取得、他に警告看板と許可証看板を立てる機能です");
+ 					$sender->sendMessage("");
+ 					$sender->sendMessage("§b=©CopyLight gamesukimanIRS All Rights Reversed=");
+ 					return true;
+ 					break;
+
+ 				case 'kanban':
+ 					switch ($args[1]) {
+ 						case'keikoku':
+ 							$sender->sendMessage("§b=====xyzplugin 警告看板ヘルプ(1/1)=====");
+ 							$sender->sendMessage("§a二行目に書く文字 §c- §a内容");
+ 							$sender->sendMessage("§amiti §c- §a道から最低1マス離して下さい");
+ 							$sender->sendMessage("§ahochi §c- §a30日以内に持ち主のログインがない場合撤去");
+ 							$sender->sendMessage("§atonari-tatemono §c- §a隣の建物から最低1マス離してください");
+ 							$sender->sendMessage("§atonari-hogo §c- §a隣の土地保護から最低1マス離してください");
+ 							$sender->sendMessage("§aarasi §c- §a荒らし物件/申告があれば修復します");
+ 							$sender->sendMessage("§amuimi-hogo §c- §a無意味な土地保護は禁止です");
+ 							$sender->sendMessage("§aganban §c- §a最低でも岩盤から1マス離してください");
+ 							$sender->sendMessage("§akuutyuu §c- §a空中建築は禁止です");
+ 							$sender->sendMessage("§atakasugi §c- §a建設高度は50ブロックまでです");
+ 							$sender->sendMessage("§atikakentiku §c- §a地下建築は禁止です");
+ 							$sender->sendMessage("§aokisugi-garasu §c- §aガラスの量を減らしてください");
+ 							$sender->sendMessage("§aokisugi-kougen §c- §a光源の量を減らしてください");
+ 							$sender->sendMessage("§aie §c- §aここに家を建てることはできません");
+ 							$sender->sendMessage("§ahyousatu §c- §a表札をつけてください");
+ 							$sender->sendMessage("§b====================================");
+ 							return true;
+ 							break;
+
+ 						case'kyokasyou':
+ 							$sender->sendMessage("§b=====xyzplugin 許可証看板ヘルプ(1/1)=====");
+ 							$sender->sendMessage("§a二行目に書く文字 §c- §a内容");
+ 							$sender->sendMessage("§agarasu §c- §aガラスの大量使用を許可");
+ 							$sender->sendMessage("§akougen §c- §a光源の大量使用を許可");
+ 							$sender->sendMessage("§amizu §c- §a水の使用を許可");
+ 							$sender->sendMessage("§atikakentiku §c- §a地下建築を許可");
+ 							$sender->sendMessage("§akuutyuu §c- §a空中建築を許可");
+ 							$sender->sendMessage("§atakai §c- §a建築最大高度超を許可");
+ 							$sender->sendMessage("§b====================================");
+ 							return true;
+ 							break;
+
+ 						default:
+ 							$sender->sendMessage("§b=====xyzplugin 看板ヘルプ(1/1)=====");
+ 							$sender->sendMessage("§a/xyzhelp kanban keikoku §c- §a警告看板のヘルプを表示します");
+ 							$sender->sendMessage("§a/xyzhelp kanban kyokasyou §c- §a許可証看板のヘルプを表示します");
+ 							$sender->sendMessage("§b====================================");
+ 							return true;
+ 							break;
+ 					}
+ 				break;
+ 				
+ 				default:
+ 					$sender->sendMessage("$b=====xyzpluginヘルプ=====");
+ 					$sender->sendMessage("§a/xyzhelp cmd §c- §axyzプラグインのコマンドのヘルプを表示します");
+ 					$sender->sendMessage("§a/xyzhelp kanban §c- §axyzプラグインの看板のヘルプを表示します");
+ 					$sender->sendMessage("§a/xyzhelp about §c- §aこのプラグインの詳細を表示します");
+ 					$sender->sendMessage("§b=======================");
+ 					return true;
+ 					break;
  			}
-  		}
+ 		}
   	}
 	public function onSignChange(SignChangeEvent $event){
 		$text = $event->getLines();
