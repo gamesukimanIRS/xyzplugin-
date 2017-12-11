@@ -1,17 +1,6 @@
 <?php
 
-/*hajime te no orijinaru plugin
-(c)gamesukimanIRS
-
-|~~~~~~~~|  |\     /|   /~~~~~\  ~~~~~  |~~~~\    /~~~~~\
-|           | \   / |  /      |    |    |     |  /      |
-|    ~~~~|  |  \_/  |  |______     |    |____/   |_______
-|        |  |       |         |    |    |\__            |
-|________|  |       |  \______|  __|__  |   \    \______|
-(c)gamesukimanIRS
-
-注意
-コードは基本汚いです。関数とかもあったもの使ってるだけです
+/*汚いコードのお出まし！れ！初めて書いたよ！れ！れ！(c)gamesukimanIRS
 */
 
 
@@ -31,7 +20,7 @@ class Main extends PluginBase implements Listener{
   
 	public function onEnable(){
 		$PluginName = "xyzplugin+α";
-		$version = "2.3.0";
+		$version = "2.3.1";
 
     	$this->getServer()->getPluginManager()->registerEvents($this, $this);
     	$this->getlogger()->info($PluginName."Version:".$version."を読み込みました。作者:gamesukimanIRS");
@@ -139,74 +128,18 @@ class Main extends PluginBase implements Listener{
 		switch ($text[0]) {
 			//下のcaseは気分が悪くなる恐れがありますのでご注意ください
 			case 'oppai':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$name = $player->getName();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'おっぱい':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'sex':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'セックス':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'tinko':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'ちんこ':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'manko':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'まんこ':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'sikosiko':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'しこしこ':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case 'シコシコ':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
 			case '4545':
-				$event->setLine(0,"§6下ネタはやめて下さい");
+				$event->setCanceld();
 				$player = $event->getPlayer();
 				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
 				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
