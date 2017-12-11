@@ -1,17 +1,7 @@
 <?php
 
-/*hajime te no orijinaru plugin
-(c)gamesukimanIRS
-
-|~~~~~~~~|  |\     /|   /~~~~~\  ~~~~~  |~~~~\    /~~~~~\
-|           | \   / |  /      |    |    |     |  /      |
-|    ~~~~|  |  \_/  |  |______     |    |____/   |_______
-|        |  |       |         |    |    |\__            |
-|________|  |       |  \______|  __|__  |   \    \______|
-(c)gamesukimanIRS
-
-注意
-コードは基本汚いです。関数とかもあったもの使ってるだけです
+/*コードの汚さは脱糞レベル！れ！(c)gamesukimanIRS
+良い子は真似しちゃダメだゾ！
 */
 
 
@@ -31,7 +21,7 @@ class Main extends PluginBase implements Listener{
   
 	public function onEnable(){
 		$PluginName = "xyzplugin+α";
-		$version = "2.3.0";
+		$version = "2.3.1";
 
     	$this->getServer()->getPluginManager()->registerEvents($this, $this);
     	$this->getlogger()->info($PluginName."Version:".$version."を読み込みました。作者:gamesukimanIRS");
