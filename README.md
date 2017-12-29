@@ -2,13 +2,12 @@
 gamesukimanIRSが初めて作ったオリジナルプラグインです。
 
 ## プラグイン概要
-/xyzと打つと自分の座標を調べる事ができます。
-また、看板に「oppai」などの下ネタを入力すると「下ネタはやめてください」という表記に変わります。
-そして、一行目に「bukken」、二行目に「miti」などと入力すると、「違法物件」「道から1マス離してください」などの表記になります。
+[![PoggitCI Badge](https://poggit.pmmp.io/ci.badge/gamesukimanIRS/xyzplugin-)](https://poggit.pmmp.io/ci/gamesukimanIRS/xyzplugin-)  
+`/xyz`と打つと自分の座標を調べる事ができます。  
+また、看板に「oppai」などの下ネタを入力すると「下ネタはやめてください」という表記に変わります。  
+そして、一行目に「bukken」、二行目に「miti」などと入力すると、「違法物件」「道から1マス離してください」などの表記になります。  
 
 二行目に入力できる文字を知りたければ/xyzhelp kanban keikoku、このプラグイン全体のヘルプは/xyzhelpです。
-
-詳細はmain.phpをどうぞ。下ネタの場所は気分が悪くなる恐れがありますのでご注意ください。
 
 ## 使用方法
 
