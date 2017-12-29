@@ -1,5 +1,5 @@
 name: xyzplugin
-main: xyzplugin\main
+main: xyzplugin\Main
 version: 1.0.0
 api: 3.0.0
 author: gamesukimanIRS
