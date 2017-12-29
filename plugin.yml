@@ -1,7 +1,14 @@
 name: xyzplugin
-main: xyzplugin\main
+main: xyzplugin\Main
 version: 2.3.0
-api: 3.0.0
+api: 
+  - 3.0.0
+  - 3.0.0-ALPHA5
+  - 3.0.0-ALPHA6
+  - 3.0.0-ALPHA7
+  - 3.0.0-ALPHA8
+  - 3.0.0-ALPHA9
+  - 3.0.0-ALPHA10
 author: gamesukimanIRS
 commands:
   xyz:
