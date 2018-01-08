@@ -45,6 +45,7 @@ class Main extends PluginBase implements Listener{
         	return true;
       		}
  		}elseif($command->getName() == "xyzhelp"){
+			if(isset($args[0])){
  			switch ($args[0]) {
  				case 'cmd':
  					$sender->sendMessage("§b=====xyzplugin Commandヘルプ(1/1)=====");
@@ -68,6 +69,7 @@ class Main extends PluginBase implements Listener{
  					break;
 
  				case 'kanban':
+					if(isset($args[1])){
  					switch ($args[1]) {
  						case'keikoku':
  							$sender->sendMessage("§b=====xyzplugin 警告看板ヘルプ(1/1)=====");
@@ -110,7 +112,13 @@ class Main extends PluginBase implements Listener{
  							$sender->sendMessage("§b====================================");
  							return true;
  							break;
- 					}
+ 					}else{
+						$sender->sendMessage("§b=====xyzplugin 看板ヘルプ(1/1)=====");
+ 						$sender->sendMessage("§a/xyzhelp kanban keikoku §c- §a警告看板のヘルプを表示します");
+ 						$sender->sendMessage("§a/xyzhelp kanban kyokasyou §c- §a許可証看板のヘルプを表示します");
+ 						$sender->sendMessage("§b====================================");
+ 						return true;
+					}
  				break;
  				
  				default:
@@ -122,6 +130,14 @@ class Main extends PluginBase implements Listener{
  					return true;
  					break;
  			}
+			}else{
+				$sender->sendMessage("$b=====xyzpluginヘルプ=====");
+ 				$sender->sendMessage("§a/xyzhelp cmd §c- §axyzプラグインのコマンドのヘルプを表示します");
+ 				$sender->sendMessage("§a/xyzhelp kanban §c- §axyzプラグインの看板のヘルプを表示します");
+ 				$sender->sendMessage("§a/xyzhelp about §c- §aこのプラグインの詳細を表示します");
+ 				$sender->sendMessage("§b=======================");
+ 				return true;
+			}
  		}
   	}
 	public function onSignChange(SignChangeEvent $event){
