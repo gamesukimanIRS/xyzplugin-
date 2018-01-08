@@ -112,6 +112,7 @@ class Main extends PluginBase implements Listener{
  							$sender->sendMessage("§b====================================");
  							return true;
  							break;
+					}
  					}else{
 						$sender->sendMessage("§b=====xyzplugin 看板ヘルプ(1/1)=====");
  						$sender->sendMessage("§a/xyzhelp kanban keikoku §c- §a警告看板のヘルプを表示します");
