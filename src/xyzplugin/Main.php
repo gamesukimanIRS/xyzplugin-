@@ -355,7 +355,7 @@ class Main extends PluginBase implements Listener{
 					$todaym = "01";
 					$todayd = "01";
 				}
-				$today = "§c撤去日　§d".$todaym."/".$todayd."";
+				$today = "§c撤去日  §d".$todaym."/".$todayd."";
 				$event->setLine(0,$daimei);
 				$event->setLine(1,$reason);
 				$event->setLine(2,$today);
