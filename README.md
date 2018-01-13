@@ -2,7 +2,7 @@
 gamesukimanIRSが初めて作ったオリジナルプラグインです。
 
 ## プラグイン概要
-[![PoggitCI Badge](https://poggit.pmmp.io/ci.badge/gamesukimanIRS/xyzplugin-/~)](https://poggit.pmmp.io/ci/gamesukimanIRS/xyzplugin-)  
+[![PoggitCI Badge](https://poggit.pmmp.io/ci.badge/gamesukimanIRS/xyzplugin-/xyzplugin-)](https://poggit.pmmp.io/ci/gamesukimanIRS/xyzplugin-/xyzplugin-)  
 `/xyz`と打つと自分の座標を調べる事ができます。  
 また、看板に「oppai」などの下ネタを入力すると「下ネタはやめてください」という表記に変わります。  
 そして、一行目に「bukken」、二行目に「miti」などと入力すると、「違法物件」「道から1マス離してください」などの表記になります。  
