@@ -143,27 +143,6 @@ class Main extends PluginBase implements Listener{
   	}
 	public function onSignChange(SignChangeEvent $event){
 		$text = $event->getLines();
-		switch ($text[0]) {
-			//下のcaseは気分が悪くなる恐れがありますのでご注意ください
-			case 'oppai':
-			case 'おっぱい':
-			case 'sex':
-			case 'セックス':
-			case 'tinko':
-			case 'ちんこ':
-			case 'manko':
-			case 'まんこ':
-			case 'sikosiko':
-			case 'しこしこ':
-			case 'シコシコ':
-			case '4545':
-				$event->setLine(0,"§6下ネタはやめて下さい");
-				$player = $event->getPlayer();
-				$player->kick("§cあなたの書いた看板を下ネタと判断しました", false);
-				$this->getServer()->broadcastMessage($name."の書いた看板が下ネタと判断され、".$name."はサーバーからkickされました。");
-				break;
-
-		}
 		$player = $event->getPlayer();
 		if($player->isOp()){
 			if($text[0] == "kyokasyou"){
