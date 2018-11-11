@@ -21,7 +21,7 @@ class Main extends PluginBase implements Listener{
   
 	public function onEnable(){
 		$PluginName = "xyzplugin+α";
-		$version = "2.3.1";
+		$version = "2.3.2";
 
     	$this->getServer()->getPluginManager()->registerEvents($this, $this);
     	$this->getlogger()->info($PluginName."Version:".$version."を読み込みました。作者:gamesukimanIRS");
