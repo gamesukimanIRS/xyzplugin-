@@ -1,19 +1,14 @@
 name: xyzplugin
 main: xyzplugin\Main
-version: 2.3.0
+version: 2.3.2
 api: 
   - 3.0.0
-  - 3.0.0-ALPHA5
-  - 3.0.0-ALPHA6
-  - 3.0.0-ALPHA7
-  - 3.0.0-ALPHA8
-  - 3.0.0-ALPHA9
-  - 3.0.0-ALPHA10
+  - 4.0.0
 author: gamesukimanIRS
 commands:
   xyz:
-    description: "自分の座標を調べます。"
-    usage: "/xyz"
+    description: "自分、他人の座標を調べます。"
+    usage: "/xyz <null or Name>"
   xyzhelp:
     description: "xyzpluginのヘルプを表示します"
     usage: "/xyzhelp"
