@@ -132,7 +132,7 @@ class Main extends PluginBase implements Listener{
  					break;
  			}
 			}else{
-				$sender->sendMessage("$b=====xyzpluginヘルプ=====");
+				$sender->sendMessage("§b=====xyzpluginヘルプ=====");
  				$sender->sendMessage("§a/xyzhelp cmd §c- §axyzプラグインのコマンドのヘルプを表示します");
  				$sender->sendMessage("§a/xyzhelp kanban §c- §axyzプラグインの看板のヘルプを表示します");
  				$sender->sendMessage("§a/xyzhelp about §c- §aこのプラグインの詳細を表示します");
