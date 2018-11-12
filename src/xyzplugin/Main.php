@@ -45,7 +45,7 @@ class Main extends PluginBase implements Listener{
         		return true;
       			}
 		}else{
-			$target = getServer()->getPlayer("$args[0]");
+			$target = $this->getServer()->getPlayer("$args[0]");
 			if($target != null){
 				$n = $target->getName();
         			$level = $target->getLevel();
@@ -220,6 +220,7 @@ class Main extends PluginBase implements Listener{
 				$name = $event->getPlayer()->getName();
 				$daimei = "§l§6⚠§r§c警告:違法物件§l§6⚠";
 				$name2 = "§l§b".$name."";
+				$todaydd = 1;
 				switch ($text[1]) {
 					/*警告追加テンプレ
 					case '【ここを二段目に入力する文字】':
