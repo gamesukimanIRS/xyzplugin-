@@ -1,6 +1,6 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/gamesukimanIRS/xyzplugin-
 branches:
-- v2_3_
+- v2_3_2
 projects:
   xyzplugin-:
     path: ""
