@@ -53,7 +53,7 @@ class Main extends PluginBase implements Listener{
         			$x = $target->getX();
         			$y = $target->getY();
         			$z = $target->getZ();
-        			$target->sendMessage("§b[XYZ]§f".$n."さんの座標は§aX=".$x."、§bY=".$y."、§dZ=".$z."、§eワールド=".$l."です。");
+        			$sender->sendMessage("§b[XYZ]§f".$n."さんの座標は§aX=".$x."、§bY=".$y."、§dZ=".$z."、§eワールド=".$l."です。");
         			return true;
 			}else{
 				$sender->sendMessage("§cプレイヤーが見つかりませんでした。");
