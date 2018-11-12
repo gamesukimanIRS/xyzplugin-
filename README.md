@@ -1,5 +1,6 @@
 # xyzplugin+α
 gamesukimanIRSが初めて作ったオリジナルプラグインです。
+![アイコン](icon.png "看板")
 
 ## プラグイン概要
 [![](https://poggit.pmmp.io/shield.state/xyzplugin)](https://poggit.pmmp.io/p/xyzplugin)  
