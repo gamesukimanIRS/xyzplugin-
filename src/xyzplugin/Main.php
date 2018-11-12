@@ -31,21 +31,37 @@ class Main extends PluginBase implements Listener{
    
   	public function onCommand(CommandSender $sender, Command $command, String $label, array $args):bool{
     	if($command->getName() == "xyz"){
-    		if($sender instanceof Player){
-        		$sender->getName();
-        		$level = $sender->getLevel();
-        		$l = $level->getFolderName();
-        		$x = $sender->getX();
-        		$y = $sender->getY();
-        		$z = $sender->getZ();
-        		$sender->sendMessage("§b[XYZ]§fあなたの座標は§aX=".$x."、§bY=".$y."、§dZ=".$z."、§eワールド=".$l."です。");
+		if(!isset($args[0])){
+    			if($sender instanceof Player){
+        			$level = $sender->getLevel();
+        			$l = $level->getFolderName();
+        			$x = $sender->getX();
+        			$y = $sender->getY();
+        			$z = $sender->getZ();
+        			$sender->sendMessage("§b[XYZ]§fあなたの座標は§aX=".$x."、§bY=".$y."、§dZ=".$z."、§eワールド=".$l."です。");
+        			return true;
+      			}else{
+        			$this->getlogger()->warning("サーバー内で実行して下さい");
         		return true;
-      		}else{
-        		$this->getlogger()->warning("サーバー内で実行して下さい");
-        	return true;
-      		}
- 		}elseif($command->getName() == "xyzhelp"){
-			if(isset($args[0])){
+      			}
+		}else{
+			$target = getServer()->getPlayer("$args[0]");
+			if($target != null){
+				$n = $target->getName();
+        			$level = $target->getLevel();
+        			$l = $level->getFolderName();
+        			$x = $target->getX();
+        			$y = $target->getY();
+        			$z = $target->getZ();
+        			$target->sendMessage("§b[XYZ]§f".$n."さんの座標は§aX=".$x."、§bY=".$y."、§dZ=".$z."、§eワールド=".$l."です。");
+        			return true;
+			}else{
+				$sender->sendMessage("§cプレイヤーが見つかりませんでした。");
+				return false;
+			}
+		}
+ 	}elseif($command->getName() == "xyzhelp"){
+		if(isset($args[0])){
  			switch ($args[0]) {
  				case 'cmd':
  					$sender->sendMessage("§b=====xyzplugin Commandヘルプ(1/1)=====");
@@ -56,7 +72,7 @@ class Main extends PluginBase implements Listener{
  					break;
 
  				case 'about':
- 					$Version = "2.3.0";
+ 					$Version = "2.3.2";
  					$sender->sendMessage("§b=====xyzplugin Version".$Version."=====");
  					$sender->sendMessage("§aQ.xyzplugin とは？");
  					$sender->sendMessage("§cA.gamesukimanIRSが初めて作ったオリジナルプラグインです。");
