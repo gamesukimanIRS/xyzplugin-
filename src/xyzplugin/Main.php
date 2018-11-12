@@ -68,10 +68,10 @@ class Main extends PluginBase implements Listener{
  					return true;
  					break;
 
- 				case 'kanban':
+ 				case 'sign':
 					if(isset($args[1])){
  					switch ($args[1]) {
- 						case'keikoku':
+ 						case'warning':
  							$sender->sendMessage("§b=====xyzplugin 警告看板ヘルプ(1/1)=====");
  							$sender->sendMessage("§a二行目に書く文字 §c- §a内容");
  							$sender->sendMessage("§amiti §c- §a道から最低1マス離して下さい");
@@ -92,7 +92,7 @@ class Main extends PluginBase implements Listener{
  							return true;
  							break;
 
- 						case'kyokasyou':
+ 						case'allow':
  							$sender->sendMessage("§b=====xyzplugin 許可証看板ヘルプ(1/1)=====");
  							$sender->sendMessage("§a二行目に書く文字 §c- §a内容");
  							$sender->sendMessage("§agarasu §c- §aガラスの大量使用を許可");
@@ -107,8 +107,8 @@ class Main extends PluginBase implements Listener{
 
  						default:
  							$sender->sendMessage("§b=====xyzplugin 看板ヘルプ(1/1)=====");
- 							$sender->sendMessage("§a/xyzhelp kanban keikoku §c- §a警告看板のヘルプを表示します");
- 							$sender->sendMessage("§a/xyzhelp kanban kyokasyou §c- §a許可証看板のヘルプを表示します");
+ 							$sender->sendMessage("§a/xyzhelp sign warning §c- §a警告看板のヘルプを表示します");
+ 							$sender->sendMessage("§a/xyzhelp sign allow §c- §a許可証看板のヘルプを表示します");
  							$sender->sendMessage("§b====================================");
  							return true;
  							break;
@@ -125,7 +125,7 @@ class Main extends PluginBase implements Listener{
  				default:
  					$sender->sendMessage("$b=====xyzpluginヘルプ=====");
  					$sender->sendMessage("§a/xyzhelp cmd §c- §axyzプラグインのコマンドのヘルプを表示します");
- 					$sender->sendMessage("§a/xyzhelp kanban §c- §axyzプラグインの看板のヘルプを表示します");
+ 					$sender->sendMessage("§a/xyzhelp sign §c- §axyzプラグインの看板のヘルプを表示します");
  					$sender->sendMessage("§a/xyzhelp about §c- §aこのプラグインの詳細を表示します");
  					$sender->sendMessage("§b=======================");
  					return true;
@@ -153,12 +153,10 @@ class Main extends PluginBase implements Listener{
 				$name2 = "§a§l".$name."";
 				$naiyou = "";
 				switch ($text[1]) {
-					/*見本※これをテンプレに【】を書き換えてくれれば動くと思います。下のコードも参考に(参考にならないかもだけど
+					/*警告追加テンプレ
 					case '【ここを二段目に入力する文字】':
 						$naiyou = "【どういう許可にするか。二段目に表示されるメッセージ。】";
 						break;
-
-					改造場所(改造許可場所)は以上です。改造するところもないのでそれ以外は基本触らないようにお願いします。
 					*/
 					case 'garasu':
 						$naiyou = "§aガラスの大量使用を許可";
